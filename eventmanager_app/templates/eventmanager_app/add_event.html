@@ -1,21 +1,14 @@
 {% extends 'eventmanager_app/base.html' %}
 {% block content %}
 
-<h2 class="mb-3">Add New Event</h2>
-
-<form method="post">
-  {% csrf_token %}
-  {% for field in form %}
-    <div class="mb-3">
-      <label class="form-label">{{ field.label }}</label>
-      {{ field }}
-      {% if field.errors %}
-        <div class="text-danger">{{ field.errors }}</div>
-      {% endif %}
-    </div>
-  {% endfor %}
-  <button type="submit" class="btn btn-primary">Add</button>
-  <a href="{% url 'event_list' %}" class="btn btn-secondary ms-2">Back</a>
-</form>
+<div class="container">
+  <h2>Add New Event</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a href="{% url 'event_list' %}" class="btn btn-secondary mt-2">Cancel</a>
+  </form>
+</div>
 
 {% endblock %}

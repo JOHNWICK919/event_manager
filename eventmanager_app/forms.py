@@ -13,7 +13,7 @@ class EventForm(forms.ModelForm):
                 attrs={
                     'type': 'date',
                     'class': 'form-control',
-                    'min': datetime.date.today().isoformat()  # 👈 sets today as the minimum
+                    'min': datetime.date.today().isoformat()  
                 }
             ),
             'reminder_time': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control'}),
